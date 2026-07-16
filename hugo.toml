@@ -35,7 +35,8 @@ enableEmoji = true
 
 [params]
   author = 'Ankit'
-  info = 'Software Engineer'
+  info = 'Perpetual learner with a running habit'
+  location = 'Dharamshala, India'
   description = "Ankit's personal website"
   keywords = 'blog,developer,personal'
   avatarURL = 'avatar.png'
@@ -65,6 +66,12 @@ enableEmoji = true
   icon = 'fa-brands fa-linkedin fa-lg'
   weight = 3
   url = 'https://www.linkedin.com/in/anki-t/'
+
+[[params.social]]
+  name = 'Strava'
+  icon = 'fa-brands fa-strava fa-lg'
+  weight = 4
+  url = 'https://www.strava.com/athletes/ankitthakur'
 
 [languages.en]
   languageName = 'English'
