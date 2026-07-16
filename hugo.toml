@@ -59,7 +59,7 @@ enableEmoji = true
   name = 'YouTube'
   icon = 'fa-brands fa-youtube fa-lg'
   weight = 2
-  url = 'https://www.youtube.com/@Genji_hehe'
+  url = 'https://www.youtube.com/@russianbulbasaur'
 
 [[params.social]]
   name = 'LinkedIn'
