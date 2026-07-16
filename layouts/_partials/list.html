@@ -1,0 +1,24 @@
+{{/* Section list pages styled like the homepage "Latest" list (paper-theme entries).
+     Styles in assets/css/custom.css */}}
+<section class="container list">
+  <div class="latest">
+    <h2 class="latest-heading">
+      {{- if eq .Kind "term" -}}
+        {{- i18n .Data.Plural 1 | title -}}
+        {{- print ": " -}}
+      {{- end -}}
+      {{- .Title -}}
+    </h2>
+    {{ .Content }}
+    {{ range .Paginator.Pages }}
+    <section class="latest-entry">
+      <h3>
+        <a href="{{ .Params.externalLink | default .RelPermalink }}"
+          {{- if .Params.externalLink }} target="_blank" rel="noopener"{{ end }}>{{ .Title }}</a>
+      </h3>
+      <time>{{ .Date | time.Format (site.Params.dateFormat | default "Jan 2, 2006") }}</time>
+    </section>
+    {{ end }}
+    {{ partial "pagination.html" . }}
+  </div>
+</section>

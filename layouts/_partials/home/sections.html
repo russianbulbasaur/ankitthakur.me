@@ -1,31 +1,11 @@
 {{/* Latest content across all sections, laid out like hugo-paper's featured entries:
-     small orange label, bold title, small faded date below, generous spacing. */}}
-{{ $labels := dict "posts" "blog" "walkthroughs" "walkthrough" "clixidiaries" "clixi diary" }}
+     small orange label, bold title, small faded date below. Styles in assets/css/custom.css */}}
 {{ $latest := first 5 (where site.RegularPages "Section" "in" (slice "posts" "walkthroughs" "clixidiaries")) }}
 {{ with $latest }}
-<style>
-  .latest { width: 100%; max-width: 64rem; margin-top: 4.5rem; }
-  .latest-heading { margin: 0 0 0.5rem 0; }
-  .latest-entry { position: relative; margin: 3.2rem 0; }
-  .latest-entry:first-of-type { margin-top: 1.6rem; }
-  .latest-entry:last-of-type { margin-bottom: 0.8rem; }
-  .latest-label {
-    display: inline-block;
-    font-size: 1.2rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #f97316;
-    margin-bottom: 0.3rem;
-  }
-  .latest-entry h3 { margin: 0; font-size: 2.2rem; }
-  .latest-entry h3 a { color: inherit; }
-  .latest-entry time { font-size: 1.3rem; opacity: 0.6; }
-</style>
 <div class="latest">
   <h2 class="latest-heading">Latest</h2>
   {{ range . }}
   <section class="latest-entry">
-    <span class="latest-label">{{ index $labels .Section | default .Section }}</span>
     <h3>
       <a href="{{ .Params.externalLink | default .RelPermalink }}"
         {{- if .Params.externalLink }} target="_blank" rel="noopener"{{ end }}>{{ .Title }}</a>

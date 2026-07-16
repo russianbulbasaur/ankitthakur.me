@@ -1,3 +1,24 @@
+/* --- paper-style entry list (homepage "Latest" + section list pages) --- */
+.latest {
+  width: 100%;
+  max-width: 64rem;
+  margin: 4.5rem auto 0;
+}
+body .latest h2.latest-heading {
+  margin: 0 0 0.5rem 0;
+  color: #f97316;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.latest-entry { position: relative; margin: 3.2rem 0; }
+.latest-entry:first-of-type { margin-top: 1.6rem; }
+.latest-entry:last-of-type { margin-bottom: 0.8rem; }
+.latest-entry h3 { margin: 0; font-size: 2.2rem; }
+.latest-entry h3 a { color: inherit; }
+.latest-entry time { font-size: 1.3rem; opacity: 0.6; }
+
 /* --- color-scheme toggle: lives in the top nav bar, not floating / not in dropdown --- */
 .navigation a#dark-mode-toggle {
   position: static;
