@@ -2,5 +2,5 @@
 title = "CMUDB Page Storage Architectures"
 date = 2026-03-15
 draft = false
-link = "https://www.youtube.com/watch?v=mMxNe2Q6WQ8"
+externalLink = "https://www.youtube.com/watch?v=mMxNe2Q6WQ8"
 +++

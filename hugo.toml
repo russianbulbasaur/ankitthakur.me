@@ -1,12 +1,12 @@
 baseURL = 'https://russianbulbasaur.github.io/'
-languageCode = 'en-us'
+languageCode = 'en'
+defaultContentLanguage = 'en'
 title = 'Ankit'
-theme = 'hugo-theme-nostyleplease'
+theme = 'hugo-coder'
+enableEmoji = true
 
-[outputs]
-  home    = ["HTML"]
-  section = ["HTML"]
-  page    = ["HTML"]
+[pagination]
+  pagerSize = 20
 
 [caches]
   [caches.images]
@@ -14,17 +14,19 @@ theme = 'hugo-theme-nostyleplease'
 
 [markup]
   [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
     [markup.goldmark.parser]
       [markup.goldmark.parser.attribute]
         block = true
         title = true
 
   [markup.highlight]
-    codeFences         = true
-    lineNos            = false
-    noClasses          = true
-    style              = 'monokai'
-    tabWidth           = 4
+    codeFences = true
+    lineNos    = false
+    noClasses  = false
+    style      = 'monokai'
+    tabWidth   = 4
 
   [markup.tableOfContents]
     startLevel = 2
@@ -32,10 +34,51 @@ theme = 'hugo-theme-nostyleplease'
     ordered    = false
 
 [params]
-  favicon = "/bulbasaur.png"
-  [params.theme_config]
-    appearance        = "auto"
-    back_home_text    = ".."
-    date_format       = "2006-01-02"
-    isListGroupByDate = true
-    isShowFooter      = false
+  author = 'Ankit'
+  info = 'Software Engineer'
+  description = "Ankit's personal website"
+  keywords = 'blog,developer,personal'
+  avatarURL = 'bulbasaur.png'
+  favicon_32 = '/bulbasaur.png'
+  favicon_16 = '/bulbasaur.png'
+  touchicon = '/bulbasaur.png'
+  dateFormat = 'Jan 02, 2006'
+  colorScheme = 'dark'
+  hideColorSchemeToggle = false
+  maxSeeAlsoItems = 5
+
+[[params.social]]
+  name = 'Github'
+  icon = 'fa-brands fa-github fa-2x'
+  weight = 1
+  url = 'https://github.com/russianbulbasaur/'
+
+[[params.social]]
+  name = 'YouTube'
+  icon = 'fa-brands fa-youtube fa-2x'
+  weight = 2
+  url = 'https://www.youtube.com/@Genji_hehe'
+
+[[params.social]]
+  name = 'LinkedIn'
+  icon = 'fa-brands fa-linkedin fa-2x'
+  weight = 3
+  url = 'https://www.linkedin.com/in/anki-t/'
+
+[languages.en]
+  languageName = 'English'
+
+[[languages.en.menu.main]]
+  name = 'Blog'
+  weight = 1
+  url = 'posts/'
+
+[[languages.en.menu.main]]
+  name = 'Walkthroughs'
+  weight = 2
+  url = 'walkthroughs/'
+
+[[languages.en.menu.main]]
+  name = 'Clixi Diaries'
+  weight = 3
+  url = 'clixidiaries/'
