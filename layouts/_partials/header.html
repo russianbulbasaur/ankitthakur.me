@@ -5,7 +5,13 @@
       {{ .Title }}
     </a>
     {{ end }}
-    {{ if or .Site.Menus.main hugo.IsMultilingual (not .Site.Params.hideColorSchemeToggle) }}
+    {{ if not .Site.Params.hideColorSchemeToggle }}
+      <a id="dark-mode-toggle" class="colorscheme-toggle float-right"
+         aria-label="Toggle color scheme" role="button">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+      </a>
+    {{ end }}
+    {{ if or .Site.Menus.main hugo.IsMultilingual }}
       <input type="checkbox" id="menu-toggle" />
       <label class="menu-button float-right" for="menu-toggle">
         <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
@@ -34,15 +40,6 @@
               </li>
             {{ end }}
           {{ end }}
-        {{ end }}
-        {{ if not .Site.Params.hideColorSchemeToggle }}
-          <li class="navigation-item">
-            <a id="dark-mode-toggle" class="colorscheme-toggle navigation-link"
-               style="position: static; margin: 0; font-size: 1.6rem; cursor: pointer;"
-               aria-label="Toggle color scheme" role="button">
-              <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
-            </a>
-          </li>
         {{ end }}
       </ul>
     {{ end }}

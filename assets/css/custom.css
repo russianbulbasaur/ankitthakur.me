@@ -1,0 +1,53 @@
+/* --- color-scheme toggle: lives in the top nav bar, not floating / not in dropdown --- */
+.navigation a#dark-mode-toggle {
+  position: static;
+  float: right;
+  margin: 0 0 0 1.8rem;
+  font-size: 1.7rem;
+  line-height: inherit;
+  cursor: pointer;
+  bottom: auto;
+  left: auto;
+}
+
+/* on mobile, align with the larger hamburger icon */
+@media only screen and (max-width: 768px) {
+  .navigation a#dark-mode-toggle {
+    font-size: 2.4rem;
+    margin-left: 1.4rem;
+  }
+}
+
+/* --- mobile dropdown: full-screen overlay with blur so focus is on the menu --- */
+@media only screen and (max-width: 768px) {
+  .navigation #menu-toggle:checked + label + ul.navigation-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    margin: 0;
+    padding-top: 10rem;
+    border: none;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.55);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
+
+  body.colorscheme-light .navigation #menu-toggle:checked + label + ul.navigation-list {
+    background-color: rgba(255, 255, 255, 0.65);
+  }
+
+  /* larger menu entries in the overlay */
+  .navigation #menu-toggle:checked + label + ul.navigation-list .navigation-item a {
+    font-size: 2.2rem;
+    line-height: 6.4rem;
+  }
+
+  /* keep the hamburger clickable above the overlay so it can close the menu */
+  .navigation .menu-button {
+    z-index: 60;
+  }
+}
