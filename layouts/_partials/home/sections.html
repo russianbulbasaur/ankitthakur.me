@@ -1,11 +1,13 @@
 {{/* Latest content across all sections, laid out like hugo-paper's featured entries:
      small orange label, bold title, small faded date below. Styles in assets/css/custom.css */}}
+{{ $labels := dict "posts" "blog" "walkthroughs" "walkthrough" "clixidiaries" "clixi diary" }}
 {{ $latest := first 5 (where site.RegularPages "Section" "in" (slice "posts" "walkthroughs" "clixidiaries")) }}
 {{ with $latest }}
 <div class="latest">
   <h2 class="latest-heading">Latest</h2>
   {{ range . }}
   <section class="latest-entry">
+    <span class="latest-label">{{ index $labels .Section | default .Section }}</span>
     <h3>
       <a href="{{ .Params.externalLink | default .RelPermalink }}"
         {{- if .Params.externalLink }} target="_blank" rel="noopener"{{ end }}>{{ .Title }}</a>
