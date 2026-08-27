@@ -1,0 +1,22 @@
+{{/* Same paper-style entry list as other sections, but entries carry a time of day
+     because they are journal notes. Unlisted section - not linked from anywhere. Styles in assets/css/custom.css */}}
+{{ define "title" }}
+  {{ .Title }} · {{ .Site.Title }}
+{{ end }}
+{{ define "content" }}
+  <section class="container list">
+    <div class="latest">
+      <h2 class="latest-heading">{{ .Title }}</h2>
+      {{ .Content }}
+      {{ range .Paginator.Pages }}
+      <section class="latest-entry">
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+          {{ .Date | time.Format (printf "%s · 3:04 PM" (site.Params.dateFormat | default "Jan 2, 2006")) }}
+        </time>
+      </section>
+      {{ end }}
+      {{ partial "pagination.html" . }}
+    </div>
+  </section>
+{{ end }}

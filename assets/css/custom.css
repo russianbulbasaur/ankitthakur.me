@@ -84,3 +84,11 @@ body.colorscheme-light .centered .latest h2.latest-heading { color: #222; }
     z-index: 60;
   }
 }
+
+/* --- evening walk thoughts: journal notes carry a time of day --- */
+.page .entry-stamp {
+  display: block;
+  font-size: 1.3rem;
+  opacity: 0.6;
+  margin-top: -0.2rem;
+}
