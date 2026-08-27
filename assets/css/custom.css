@@ -85,10 +85,26 @@ body.colorscheme-light .centered .latest h2.latest-heading { color: #222; }
   }
 }
 
-/* --- evening walk thoughts: journal notes carry a time of day --- */
-.page .entry-stamp {
-  display: block;
-  font-size: 1.3rem;
-  opacity: 0.6;
-  margin-top: -0.2rem;
+/* evening walk thoughts entries are titled by their timestamp, so the <time>
+   inside the entry heading must read as a title, not as the small date line */
+.latest-entry h3 time {
+  font-size: inherit;
+  opacity: 1;
+}
+
+/* --- footer: quiet way into the unlisted "evening walk thoughts" section --- */
+.footer {
+  margin-top: 6rem;
+  margin-bottom: 2.5rem;
+}
+body .footer a.quiet-link {
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  color: inherit;
+  opacity: 0.28;
+  transition: opacity 0.2s ease;
+}
+body .footer a.quiet-link:hover,
+body .footer a.quiet-link:focus {
+  opacity: 0.7;
 }

@@ -1,16 +1,17 @@
 {{ define "title" }}
-  {{ .Title }} · {{ .Site.Title }}
+  {{ .Date | time.Format (printf "%s · 3:04 PM" (site.Params.dateFormat | default "Jan 2, 2006")) }} · {{ .Site.Title }}
 {{ end }}
 {{ define "content" }}
   <section class="container page">
     <article>
       <header>
         <h1 class="title">
-          <a class="title-link" href="{{ .Permalink | safeURL }}">{{ .Title }}</a>
+          <a class="title-link" href="{{ .Permalink | safeURL }}">
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+              {{ .Date | time.Format (printf "%s · 3:04 PM" (site.Params.dateFormat | default "Jan 2, 2006")) }}
+            </time>
+          </a>
         </h1>
-        <time class="entry-stamp" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-          {{ .Date | time.Format (printf "%s · 3:04 PM" (site.Params.dateFormat | default "Jan 2, 2006")) }}
-        </time>
       </header>
 
       {{ .Content }}

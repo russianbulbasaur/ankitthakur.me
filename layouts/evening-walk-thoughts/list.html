@@ -1,5 +1,6 @@
-{{/* Same paper-style entry list as other sections, but entries carry a time of day
-     because they are journal notes. Unlisted section - not linked from anywhere. Styles in assets/css/custom.css */}}
+{{/* Unlisted section - not linked from anywhere but the footer.
+     Entries have no titles; each one is headed by its own timestamp.
+     Styles in assets/css/custom.css */}}
 {{ define "title" }}
   {{ .Title }} · {{ .Site.Title }}
 {{ end }}
@@ -10,10 +11,13 @@
       {{ .Content }}
       {{ range .Paginator.Pages }}
       <section class="latest-entry">
-        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-          {{ .Date | time.Format (printf "%s · 3:04 PM" (site.Params.dateFormat | default "Jan 2, 2006")) }}
-        </time>
+        <h3>
+          <a href="{{ .RelPermalink }}">
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+              {{ .Date | time.Format (printf "%s · 3:04 PM" (site.Params.dateFormat | default "Jan 2, 2006")) }}
+            </time>
+          </a>
+        </h3>
       </section>
       {{ end }}
       {{ partial "pagination.html" . }}
